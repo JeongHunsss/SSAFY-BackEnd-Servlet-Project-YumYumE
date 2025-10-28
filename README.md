@@ -290,31 +290,29 @@ food 테이블 데이터 출처: [식품의약품안전처](https://various.food
     - 식사 타입 => (아침, 점심, 저녁) = 3, 간식 = 6
   - 각 영양소별 점수 산출 (당류는 낮을수록 높은 점수)
     - 비율 $R = \frac{\text{섭취한 양}}{\text{권장량}}$
-      
-    ```math
-    \text{점수}(R) =
-    \begin{cases}
-    100 & \text{if } 0.9 \le R \le 1.1 \\
-    90 + (R - 0.8) \times 100 & \text{if } 0.8 \le R < 0.9 \\
-    90 + (1.2 - R) \times 100 & \text{if } 1.1 < R \le 1.2 \\
-    80 + (R - 0.7) \times 100 & \text{if } 0.7 \le R < 0.8 \\
-    80 + (1.3 - R) \times 100 & \text{if } 1.2 < R \le 1.3 \\
-    70 + (R - 0.6) \times 100 & \text{if } 0.6 < R < 0.7 \\
-    70 + (1.4 - R) \times 100 & \text{if } 1.3 < R \le 1.4 \\
-    \max(0, 70 - (R - 1.4) \times 100) & \text{if } R > 1.4 \\
-    \max(0, 70 - (0.6 - R) \times 100) & \text{if } R \le 0.6
-    \end{cases}
-    ```
-    
-    ```math
-    \text{점수}_{\text{당류}}(R) =
-    \begin{cases}
-    100 & \text{if } R \le 1.0 \\
-    90 + (1.2 - R) \times 50 & \text{if } 1.0 < R \le 1.2 \\
-    80 + (1.4 - R) \times 50 & \text{if } 1.2 < R \le 1.4 \\
-    \max(0, 80 - (R - 1.4) \times 100) & \text{if } R > 1.4
-    \end{cases}
-    ```
+```math
+\text{점수}(R) =
+\begin{cases}
+100 & \text{if } 0.9 \le R \le 1.1 \\
+90 + (R - 0.8) \times 100 & \text{if } 0.8 \le R < 0.9 \\
+90 + (1.2 - R) \times 100 & \text{if } 1.1 < R \le 1.2 \\
+80 + (R - 0.7) \times 100 & \text{if } 0.7 \le R < 0.8 \\
+80 + (1.3 - R) \times 100 & \text{if } 1.2 < R \le 1.3 \\
+70 + (R - 0.6) \times 100 & \text{if } 0.6 < R < 0.7 \\
+70 + (1.4 - R) \times 100 & \text{if } 1.3 < R \le 1.4 \\
+\max(0, 70 - (R - 1.4) \times 100) & \text{if } R > 1.4 \\
+\max(0, 70 - (0.6 - R) \times 100) & \text{if } R \le 0.6
+\end{cases}
+```
+```math
+\text{점수}_{\text{당류}}(R) =
+\begin{cases}
+100 & \text{if } R \le 1.0 \\
+90 + (1.2 - R) \times 50 & \text{if } 1.0 < R \le 1.2 \\
+80 + (1.4 - R) \times 50 & \text{if } 1.2 < R \le 1.4 \\
+\max(0, 80 - (R - 1.4) \times 100) & \text{if } R > 1.4
+\end{cases}
+```
     
   - 영양소별 가중치
     - 칼로리 (0.3)
